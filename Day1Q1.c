@@ -1,20 +1,24 @@
 #include <stdio.h>
 
-void twoSum(int nums[], int n, int target) {
-    for(int i = 0; i < n; i++) {
-        for(int j = i + 1; j < n; j++) {
-            if(nums[i] + nums[j] == target) {
-                printf("Indices: [%d, %d]\n", i, j);
-                return;
-    }
-    }
-}
-}
 int main() {
-    int nums[] = {2, 7, 11, 15};
-    int target = 9;
-    int n = sizeof(nums) / sizeof(nums[0]);
+    int n, pos, x;
+    scanf("%d", &n);
 
-    twoSum(nums, n, target);
+    int arr[n + 1];  
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    scanf("%d", &pos);
+    scanf("%d", &x);
+
+    for(int i = n; i >= pos; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[pos - 1] = x;
+    
+    for(int i = 0; i <= n; i++) {
+        printf("%d ", arr[i]);
+    }
     return 0;
 }
+
